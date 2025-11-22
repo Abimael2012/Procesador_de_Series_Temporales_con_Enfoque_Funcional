@@ -1,162 +1,214 @@
-📈 Proyecto 2: Procesador de Series Temporales con Enfoque Funcional
-==================================================================
+# 📈 Proyecto 2: Procesador de Series Temporales con Enfoque Funcional
 
-📋 DESCRIPCIÓN DEL PROYECTO
-----------------------------
-Sistema funcional que procesa y analiza la serie temporal de ventas del restaurante "Las Hamacas del Mayor".
-El sistema implementa transformaciones, filtrados y agregaciones (basado en el dataset M5 de Kaggle)
-manteniendo los principios de funciones puras e inmutabilidad.
+### Universidad de Colima - Ingeniería en Computación Inteligente
+**Materia:** Programación Funcional  
+**Profesor:** Gonzalez Zepeda Sebastian  
+**Semestre:** Agosto 2025 - Enero 2026
 
-Universidad de Colima - Ingeniería en Computación Inteligente
-Materia: Programación Funcional
-Profesor: Gonzalez Zepeda Sebastian
-Semestre: Agosto 2025 - Enero 2026
+---
 
-==================================================================
+## 📋 Descripción del Proyecto
 
-🎯 OBJETIVOS
--------------
-- Implementar funciones puras para la transformación de series temporales.
-- Aplicar lazy evaluation (evaluación perezosa) con generadores para el manejo eficiente de grandes datasets (M5).
-- Usar composición de funciones para crear pipelines de análisis.
-- Aplicar funciones de orden superior (map, filter, reduce) en el análisis temporal.
-- Utilizar recursión para algoritmos de procesamiento.
+Sistema funcional que procesa y analiza la serie temporal de ventas del restaurante **"Las Hamacas del Mayor"**. El sistema implementa transformaciones, filtrados y agregaciones (basado en el dataset M5 de Kaggle) manteniendo los principios de funciones puras e inmutabilidad.
 
-==================================================================
+---
 
-🛠️ TECNOLOGÍAS UTILIZADAS
---------------------------
-- Lenguaje: Python 3.11+
-- Paradigma: Programación Funcional
-- Librerías (requirements.txt):
-  - pandas
-  - numpy
-  - statsmodels
-  - matplotlib
-  - fastapi
-  - plotly
-  - uvicorn
-  - rx
+## 🎥 Presentación del Proyecto
 
-==================================================================
+Explicación completa del funcionamiento, arquitectura del código, análisis de datos, API y dashboard:
 
-📦 INSTALACIÓN
----------------
-# 1. Clonar el repositorio
+🔗 **Video en Google Drive:** [https://drive.google.com/file/d/1dt9K-6Jqenr9p7KUwtLUA3E9xqAKwA9D/view?usp=sharing](https://drive.google.com/file/d/1dt9K-6Jqenr9p7KUwtLUA3E9xqAKwA9D/view?usp=sharing)
+
+---
+
+## 🎯 Objetivos
+
+* Implementar **funciones puras** para la transformación de series temporales.
+* Aplicar **lazy evaluation** (evaluación perezosa) con generadores para el manejo eficiente de grandes datasets (M5).
+* Usar **composición de funciones** para crear pipelines de análisis.
+* Aplicar **funciones de orden superior** (`map`, `filter`, `reduce`) en el análisis temporal.
+* Utilizar **recursión** para algoritmos de procesamiento.
+
+---
+
+## 🛠️ Tecnologías Utilizadas
+
+* **Lenguaje:** Python 3.11+
+* **Paradigma:** Programación Funcional
+* **Librerías (`requirements.txt`):**
+    * `pandas`: Lectura inicial del CSV y Lazy Evaluation.
+    * `numpy`: Cálculos numéricos optimizados.
+    * `statsmodels`: Análisis estadístico.
+    * `matplotlib` y `plotly`: Visualización de datos interactiva.
+    * `fastapi`: Creación de la API RESTful.
+    * `uvicorn`: Servidor ASGI para la API.
+    * `rx`: Programación reactiva (reservado).
+
+---
+
+## 📦 Instalación y Configuración
+
+### 1. Clonar el repositorio
+
+```bash
 git clone https://github.com/sebastiangz/Procesador_de_Series_Temporales_con_Enfoque_Funcional.git
 cd Procesador_de_Series_Temporales_con_Enfoque_Funcional
+```
 
-# 2. Crear y activar el entorno virtual
+### 2. Crear y activar el entorno virtual
+
+```bash
 python -m venv venv
+
 # En Windows (PowerShell):
 .\venv\Scripts\Activate.ps1
 
-# 3. Instalar las dependencias
+# En Mac/Linux:
+source venv/bin/activate
+```
+
+### 3. Instalar las dependencias
+
+```bash
 pip install -r requirements.txt
+```
 
-# 4. Descargar los datos de Kaggle (M5)
-# Colocar 'calendar.csv' y 'sales_train_validation.csv'
-# dentro de la carpeta /data/
+### ⚠️ 4. Descarga de Datos Requeridos (Kaggle)
 
-==================================================================
+Debido al tamaño de los archivos, los datos no se incluyen en el repositorio. Para ejecutar el proyecto, descarga los siguientes archivos y colócalos en la carpeta `/data/`.
 
-🚀 USO DEL SISTEMA (PROYECTO FINAL)
-----------------------------------
-El proyecto tiene dos modos de ejecución:
+| Archivo | Descripción | Enlace |
+| :--- | :--- | :--- |
+| `calendar.csv` | Información de días, semanas y eventos | [Descargar en Kaggle](https://www.kaggle.com/code/headsortails/back-to-predict-the-future-interactive-m5-eda/input?select=calendar.csv) |
+| `sales_train_evaluation.csv` | Histórico de ventas por tienda y producto | [Descargar en Kaggle](https://www.kaggle.com/code/headsortails/back-to-predict-the-future-interactive-m5-eda/input?select=sales_train_evaluation.csv) |
 
-1. Demo Principal (Genera el Dashboard)
-   Este script ejecuta el pipeline completo (carga, análisis, detección de anomalías)
-   y genera un dashboard interactivo (reporte_ventas_final.html).
+*(Nota: Asegúrate de que el nombre del archivo de ventas coincida con lo que espera el código, por ejemplo `sales_train_validation.csv`, o renómbralo según sea necesario).*
 
-   # Asegúrate de que tu venv esté activado
-   python demo_avance1.py
-   
-   # El script generará 'reporte_ventas_final.html'.
-   # Ábrelo en tu navegador.
+---
 
-2. API Funcional
-   Inicia un servidor web local con uvicorn que expone los análisis como endpoints.
+## 🚀 Uso del Sistema (Proyecto Final)
 
-   # En una terminal separada, activa el venv
-   uvicorn src.api.endpoints:app --reload
-   
-   # Visita http://127.0.0.1:8000 en tu navegador.
+El proyecto tiene dos modos de ejecución principales:
 
-==================================================================
+### 1. Demo Principal (Genera el Dashboard)
+Este script ejecuta el pipeline completo (carga, análisis, detección de anomalías) y genera un dashboard interactivo.
 
-📂 ESTRUCTURA DEL PROYECTO
----------------------------
+```bash
+# Asegúrate de que tu venv esté activado
+python demo_avance1.py
+```
+*El script generará el archivo `reporte_ventas_final.html`. Ábrelo en tu navegador para ver la gráfica interactiva.*
+
+### 2. API Funcional
+Inicia un servidor web local que expone los análisis como endpoints.
+
+```bash
+# En una terminal separada, activa el venv
+uvicorn src.api.endpoints:app --reload
+```
+* **Panel de Control:** Visita `http://127.0.0.1:8000/docs`
+* **Bienvenida:** Visita `http://127.0.0.1:8000`
+
+---
+
+## 📸 Galería del Proyecto
+
+### 1. Dashboard Interactivo
+Visualización de ventas reales (azul), tendencia suavizada (rojo) y anomalías detectadas (X).
+![Dashboard Interactivo](img/Dashboard.png)
+
+### 2. API Funcional (Documentación Automática)
+Endpoints funcionales probados en Swagger UI mostrando la respuesta JSON de la detección de anomalías.
+![API Funcional](img/Api.png)
+
+### 3. Arquitectura del Proyecto
+Estructura modular de carpetas (`core`, `analysis`, `visualization`, `api`) siguiendo el flujo del pipeline de datos.
+![Arquitectura del Proyecto](img/Pipeline.png)
+
+---
+
+## 📂 Estructura del Proyecto
+
+```text
 /timeseries_processor/
-├── data/
-│   ├── calendar.csv             (Datos de Kaggle M5)
-│   └── sales_train_validation.csv (Datos de Kaggle M5)
+├── data/                        (Archivos CSV de Kaggle - Ignorados por Git)
+├── img/                         (Capturas de pantalla para documentación)
+│   ├── Dashboard.png
+│   ├── Api.png
+│   └── Pipeline.png
 ├── src/
 │   ├── api/
 │   │   ├── __init__.py
 │   │   └── endpoints.py         (Semana 4: API con FastAPI)
 │   ├── analysis/
 │   │   ├── __init__.py
-│   │   ├── anomaly_detection.py (Semana 3: Detección de anomalías)
+│   │   ├── anomaly_detection.py (Semana 3: Detección de anomalías Z-Score)
 │   │   └── pattern_matching.py  (Semana 3: Detección de patrones)
 │   ├── core/
 │   │   ├── __init__.py
-│   │   ├── pure_functions.py    (Semana 1/2: Funciones puras)
+│   │   ├── pure_functions.py    (Semana 1/2: Funciones puras matemáticas)
 │   │   ├── transformers.py      (Semana 2: Composición/Pipeline)
-│   │   └── lazy_streams.py      (Semana 1: Lazy evaluation)
-│   ├── reactive/
+│   │   └── lazy_streams.py      (Semana 1: Lazy evaluation con Generadores)
+│   ├── reactive/                (Reservado para streams en tiempo real)
 │   └── visualization/
 │       ├── __init__.py
 │       └── dashboard.py         (Semana 4: Dashboard con Plotly)
 ├── venv/
 ├── demo_avance1.py              (Script principal de demostración)
 └── requirements.txt
+```
 
-==================================================================
+---
 
-📈 PIPELINE DE DESARROLLO (100% COMPLETADO)
---------------------------------------------
-- Semana 1: Funciones Básicas de Manipulación (Completado) ✅
-- Semana 2: Filtros y Transformaciones Complejas (Completado) ✅
-- Semana 3: Detección de Anomalías y Patrones (Completado) ✅
-- Semana 4: Dashboard y API Funcional (Completado) ✅
+## 📈 Pipeline de Desarrollo (100% Completado)
 
-==================================================================
+* ✅ **Semana 1: Funciones Básicas de Manipulación**
+    * Estructura del proyecto y lectura de datos (`lazy_streams.py`).
+    * Operaciones básicas: media móvil, diferenciación (`pure_functions.py`).
+* ✅ **Semana 2: Filtros y Transformaciones Complejas**
+    * Transformaciones de escala (normalizar).
+    * Composición de funciones (`TimeSeriesPipeline`).
+    * Optimización con lazy evaluation.
+* ✅ **Semana 3: Detección de Anomalías y Patrones**
+    * Algoritmos de detección de outliers (`anomaly_detection.py`).
+    * Identificación de tendencias (`pattern_matching.py`).
+* ✅ **Semana 4: Dashboard y API Funcional**
+    * API RESTful (`api/endpoints.py`).
+    * Dashboard interactivo (`visualization/dashboard.py`).
 
-💼 COMPONENTE DE EMPRENDIMIENTO
---------------------------------
-Aplicación Real: Sistema de análisis y predicción de ventas para el restaurante "Las Hamacas del Mayor".
+---
 
-Propuesta de Valor:
-1. Optimización de inventario para reducir el desperdicio de alimentos.
-2. Detección automática de anomalías en las ventas (ej. caídas por problemas operativos).
-3. Planificación de personal basada en la predicción de demanda por día de la semana.
+## 💼 Componente de Emprendimiento
 
-==================================================================
+**Aplicación Real:** Sistema de análisis y predicción de ventas para el restaurante "Las Hamacas del Mayor".
 
-📚 REFERENCIAS ACADÉMICAS
---------------------------
-1. Sprangers, O., De Rijke, M., & Vlachos, M. (2024). Efficient and Accurate Forecasting in Large-scale Settings.
-2. Ledesma, J., Garcia, M. (2025). Real-Time Advertising Data Unification Using Spark and S3.
-3. Wagner, M. & Neumann, D. (2020). Identifying and Responding to Outlier Demand in Revenue Management.
+**Propuesta de Valor:**
+1.  Optimización de inventario para reducir el desperdicio de alimentos.
+2.  Detección automática de anomalías en las ventas (ej. caídas por problemas operativos).
+3.  Planificación de personal basada en la predicción de demanda por día de la semana.
 
-==================================================================
+---
 
-👥 EQUIPO
-----------
-1. Nombre: Abimael Villamar
-   Email:  agarcia165@ucol.mx
-   GitHub: @Abimael2012 (https://github.com/Abimael2012)
+## 📚 Referencias Académicas
 
-2. Nombre: Jesus Fuentes
-   Email:  Jfuentes15@ucol.mx
-   GitHub: @ChuyFuentes (https://github.com/ChuyFuentesDev)
+1.  **Sprangers, O., De Rijke, M., & Vlachos, M. (2024).** *Efficient and Accurate Forecasting in Large-scale Settings.*
+    * Relevancia: Justifica el uso de agregaciones para analizar ventas y encontrar tendencias.
+2.  **Ledesma, J., Garcia, M. (2025).** *Real-Time Advertising Data Unification Using Spark and S3.*
+    * Relevancia: Respalda el uso de un pipeline funcional para transformar grandes volúmenes de datos.
+3.  **Wagner, M. & Neumann, D. (2020).** *Identifying and Responding to Outlier Demand in Revenue Management.*
+    * Relevancia: Fundamenta la detección de anomalías con técnicas funcionales.
 
-3. Nombre: Aaron Diaz
-   Email:  adiaz82@ucol.mx
-   GitHub: @aarondiazurena25-svg (https://github.com/aarondiazurena25-svgDev)
+---
 
-==================================================================
+## 👥 Equipo
 
-📄 LICENCIA
-------------
+| Nombre | Email | GitHub |
+| :--- | :--- | :--- |
+| **Abimael Villamar** | agarcia165@ucol.mx | [@Abimael2012](https://github.com/Abimael2012) |
+| **Jesus Fuentes** | Jfuentes15@ucol.mx | [@ChuyFuentes](https://github.com/ChuyFuentes) |
+| **Aaron Diaz** | adiaz82@ucol.mx | [@aarondiazurena25-svg](https://github.com/aarondiazurena25-svg) |
+
+---
+
+## 📄 Licencia
 Proyecto académico - Universidad de Colima © 2025
